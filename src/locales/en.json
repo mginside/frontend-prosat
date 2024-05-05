@@ -1,0 +1,23 @@
+{
+  "email_required": "email field are required",
+  "email": "email",
+  "password.required": "password field are required",
+  "password.confirm.required": "password confirm field are required",
+  "password.matched": "password does not match confirm password",
+  "password.lenght": "password must be greater then 8 chars",
+  "password.change.success": "your password has been successfully changed you will be redirected to login page in few secondes",
+  "password.change.error": "there is an error pealse try again........;",
+  "email.format": "please enter a valid email adresse",
+  "email.required": "email field are required",
+  "username": "username",
+  "username.required": "username field are required",
+  "password": "password",
+  "password.conrimation": "password confirmation",
+  "username.placeholder": "Enter your username....",
+  "password.placeholder": "Enter your password",
+  "forgot_password": "forgot password",
+  "login.btn": "SIGN IN",
+  "login.back.btn": "back to login",
+  "send.btn": "SEND",
+  "email.reset.btn": "RESET"
+}

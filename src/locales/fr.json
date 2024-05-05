@@ -1,0 +1,22 @@
+{
+  "email_required": "le champ email est obligatoir",
+  "password.required": "le champ mot de passe est obligatoir",
+  "password.confirm.required": "le cham mot de passe de  confirmation est obligatoir",
+  "password.matched": "le mot de passe ne correspond pas au mot de passe de confirmation",
+  "password.lenght": "le mot de passe doit étre superieure a 8 caractères",
+  "password.change.success": "votre mot de passe a été changer avec succé vous allez etre rediriger vers la page d'authentification dans quelques secondes",
+  "password.change.error": "un probléme est survenu veillez réessayer plus tard ....... ;",
+  "email.format": "veillez entrez une adresse mail valide",
+  "email.required": "le champ email est obligatoire",
+  "username": "nom d'utilisateur",
+  "username.required": "le champ nom d'utilisateur est obligatoire",
+  "password": "mot de passe",
+  "password.confirmation": "mot de passe de confirmation",
+  "username.placeholder": "Entrez votre nom d'utilisateur ....",
+  "password.placeholder": "Entrez votre mot de passe ....",
+  "forgot_password": "mot de passe oublie",
+  "login.btn": "CONNECTER",
+  "login.back.btn": "revenir en arriére",
+  "send.btn": "ENVOYER",
+  "email.reset.btn": "RÉINITIALISER"
+}

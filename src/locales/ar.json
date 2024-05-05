@@ -1,0 +1,23 @@
+{
+  "email_required": "حقل البريد الإلكتروني مطلوب",
+  "email": "بريد إلكتروني",
+  "password.required": "حقل كلمة المرور مطلوب",
+  "password.confirm.required": "حقل تأكيد كلمة المرور مطلوب",
+  "password.matched": "كلمة المرور غير متطابقة مع تأكيد كلمة المرور",
+  "password.length": "يجب أن تكون كلمة المرور أكثر من 8 أحرف",
+  "password.change.success": "تم تغيير كلمة المرور بنجاح، سيتم توجيهك إلى صفحة تسجيل الدخول في ثوانٍ قليلة",
+  "password.change.error": "حدث خطأ، يرجى المحاولة مرة أخرى......",
+  "email.format": "يرجى إدخال عنوان بريد إلكتروني صالح",
+  "email.required": "حقل البريد الإلكتروني مطلوب",
+  "username": "اسم المستخدم",
+  "username.required": "حقل اسم المستخدم مطلوب",
+  "password": "كلمة المرور",
+  "password.confirmation": "تأكيد كلمة المرور",
+  "username.placeholder": "أدخل اسم المستخدم الخاص بك....",
+  "password.placeholder": "أدخل كلمة المرور الخاصة بك",
+  "forgot_password": "نسيت كلمة المرور",
+  "login.btn": "تسجيل الدخول",
+  "login.back.btn": "العودة إلى صفحة تسجيل الدخول",
+  "send.btn": "إرسال",
+  "email.reset.btn": "إعادة تعيين"
+}
