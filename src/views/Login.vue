@@ -177,8 +177,8 @@ export default {
       return email.match(/^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/)
 
     },
-    async get_me(){
-      await axios.get('me/').then(response=>{
+     get_me(){
+       axios.get('me/').then(response=>{
         this.loading = false
 
         this.userStore.setUserInfo(response.data)
@@ -191,7 +191,7 @@ export default {
       })
     },
 
-    async onSubmit () {
+     onSubmit () {
       if(!this.username){
         this.errors.username_error = this.$t('username.required')
       }
@@ -203,7 +203,7 @@ export default {
       }
       if(!this.errors.username_error && !this.errors.password_error){
         this.loading = true
-       await axios.post('login/',{'username':this.username,'password':this.password,'otp':this.otp})
+        axios.post('login/',{'username':this.username,'password':this.password,'otp':this.otp})
             .then(response=>{
 
               this.userStore.setToken(response.data)
