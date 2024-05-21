@@ -1,23 +1,46 @@
 <script setup>
-const props = defineProps(['title','icon','total','bgcolor'])
+const props = defineProps(['title','icon','total'])
 </script>
 
 <template>
-<v-card elevation="2" max-width="250" :color="props.bgcolor">
+  <v-container>
+    <v-card
+      border="opacity-50 sm"
 
-  <template v-slot:prepend>
-    <v-icon :icon="props.icon" size="50"/>
-  </template>
-<template v-slot:append>
-  <p class="text-left font-weight-thin mb-3">{{ title }}</p>
-  <h1 class="text-deep-orange text-right">{{total}}</h1>
+      class="text-center"
+      
+      rounded="xl"
+   
+    >
+      <template v-slot:title>
+        <div class="text-caption font-weight-bold">{{title}}</div>
+      </template>
+
+     
+
+      <template v-slot:text>
+        <div class="text-h4 font-weight-black">
+          <span :class="icon"></span>
+          <small class="text-caption text-medium-emphasis ">
+          <div>
+            <span class="text-green text-h5 text-right">
+              
+              {{total}}
+            </span>
+
+           
+          </div>
+
+          
+        </small>
+        </div>
+
+        
+      </template>
+    </v-card>
+  </v-container>
 </template>
 
-</v-card>
-
-
-
-</template>
 
 <style scoped>
 

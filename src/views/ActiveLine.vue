@@ -207,6 +207,12 @@ onMounted(()=>{
       
       <span v-if="item.has_expired" class="mdi mdi-timer-off-outline text-red text-h6"></span>
     </template>
+    <template v-slot:item.exp_date="{item}">
+   
+
+        {{ item.is_active ? item.exp_date : '**********'  }}
+      
+    </template>
 
 
     <template v-slot:item.actions="{item}">
@@ -229,7 +235,7 @@ onMounted(()=>{
             M3u & Extream
           </v-list-item>
           <v-list-item @click="EnableDisable(item)" :append-icon="item.enabled?'mdi mdi-television-off':'mdi mdi-television'">
-            {{ item.admin_enabled ? 'Block':'Unblock' }}
+            {{ item.enabled ? 'Block':'Unblock' }}
           </v-list-item>
           <v-list-item @click="reset_code(item)" append-icon="mdi mdi-reload" >
             Reset

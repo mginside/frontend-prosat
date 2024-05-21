@@ -1,5 +1,3 @@
-
-
 import { createApp } from 'vue'
 import { createPinia } from 'pinia'
 
@@ -34,7 +32,7 @@ const vuetify = createVuetify({
 
     },
     theme: {
-        defaultTheme: localStorage.getItem('theme') || 'light'
+        defaultTheme: localStorage.getItem('theme') || 'dark'
     }
 })
 

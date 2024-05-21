@@ -6,6 +6,7 @@ import EditReseller from "@/components/reseller/EditReseller.vue";
 import Disable from "@/components/reseller/Disable.vue";
 import AddUser from "./AddUser.vue";
 import debounce from 'lodash.debounce';
+import ChangePasswordReseller from "@/components/reseller/ChangePasswordReseller.vue";
 
 
 
@@ -19,10 +20,13 @@ const EditForm = ref(false)
 const AddForm = ref(false)
 const Disableform=ref(false)
 const reseller = ref()
+const ChangePasswordForm = ref(false)
 provide('topup',TopUpForm)
 provide('edit',EditForm)
 provide('dialog',AddForm)
 provide('disable',Disableform)
+provide('change_password_popup',ChangePasswordForm)
+
 
 const addUser = ()=>{
   AddForm.value=true
@@ -44,6 +48,11 @@ const editform = (item)=>{
   reseller.value = item
   EditForm.value = true
 }
+const changePassword = (item)=>{
+  ChangePasswordForm.value = true
+  reseller.value = item
+
+}
 
 
 const Edit = (item)=>{
@@ -57,12 +66,11 @@ const closeEdit = ()=>{
 const headers = ref([
 
   { key: 'username', title: 'Username'},
-  { key: 'date', title: 'Created At' },
+  { key: 'date_registered', title: 'Created At' },
   {key:'is_active',title: 'Status'},
   { key: 'credits', title: 'Credits' },
   
   { key: 'ip', title: 'Ip adresse' },
-  { key: 'last_login', title: 'Last Connexion' },
   { title: 'Actions', key: 'actions', sortable: false },
 
 ])
@@ -109,6 +117,7 @@ onMounted(()=>{
   <EditReseller :item="reseller"/>
   <AddUser @reload="UserAdded"/>
   <Disable :disable="Disableform" :item="reseller" @reload="loaddata"/>
+  <ChangePasswordReseller :item="reseller"/>
 
 
 
@@ -162,6 +171,9 @@ onMounted(()=>{
             </v-list-item>
             <v-list-item append-icon="mdi mdi-bank-transfer-out" :key="item.id" @click="topUp(item)">
               Topup
+            </v-list-item>
+            <v-list-item append-icon="mdi mdi-lock-reset" :key="item.id" @click="changePassword(item)">
+              Change password
             </v-list-item>
          
             <v-list-item :append-icon="item.is_active?'mdi mdi-account-cancel-outline':'mdi mdi-account-check'" :key="item.id" @click="DisableUser(item)">

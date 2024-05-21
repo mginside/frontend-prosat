@@ -14,7 +14,7 @@ import Rightsidebar from "@/components/navigation/RightSidebar.vue";
 
 
 
-const drawer = ref(null)
+const drawer = ref(true)
 const rightdrawer = ref(false)
 const userStore = useUserStore()
 
@@ -33,7 +33,7 @@ provide('rightdrawer',rightdrawer)
 
 
         }).catch(err=>{
-          console.log(err)
+      
           userStore.logout()
     })
 
@@ -52,10 +52,11 @@ provide('rightdrawer',rightdrawer)
 <template>
 
 
- <v-app id="inspire">
-   <Sidebar v-if="userStore.user.isAuthenticated"/>
-   <rightsidebar v-if="userStore.user.isAuthenticated"/>
-   <Appbar v-if="userStore.user.isAuthenticated" @drawerEvent="drawer = !drawer" @openrightdrawer="rightdrawer=!rightdrawer"/>
+ <v-app id="inspire1">
+    <Sidebar v-if="userStore.user.isAuthenticated"/>
+    <rightsidebar v-if="userStore.user.isAuthenticated"/>
+    <Appbar v-if="userStore.user.isAuthenticated" @drawerEvent="drawer = !drawer" @openrightdrawer="rightdrawer=!rightdrawer"/>
+   
 
 
  <v-main>
@@ -73,16 +74,7 @@ provide('rightdrawer',rightdrawer)
  </v-app>
 </template>
 <style>
-.v-enter-active,
-.v-leave-active {
-  transition: opacity 0.5s ease;
 
-}
-
-.v-enter-from,
-.v-leave-to {
-  opacity: 0;
-}
 
 .v-dialog{
   align-items: flex-start !important;

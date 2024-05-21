@@ -10,6 +10,8 @@ import ActiveLine from "@/views/ActiveLine.vue";
 import BulkList from "@/views/BulkList.vue";
 import Line from "@/views/Line.vue";
 import EditBouquetVue from '@/views/EditBouquet.vue';
+import LineVue from '@/views/Line.vue';
+import LiveLineVue from '@/views/LiveLine.vue';
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -61,6 +63,12 @@ const router = createRouter({
       path:'/lines',
       name:'lines',
       component:Line,
+      meta:{auth:true}
+    },
+    {
+      path:'/online',
+      name:'line-online',
+      component:LiveLineVue,
       meta:{auth:true}
     },
     {

@@ -4,6 +4,7 @@ import { useMagicKeys } from '@vueuse/core'
 import mitt from "mitt";
 import axios from "axios";
 import {useUserStore} from "@/stores/user";
+import { useClipboard } from '@vueuse/core'
 const dialog = ref(false)
 const { meta,g,e} = useMagicKeys()
 const package_users = ref()
@@ -15,10 +16,11 @@ const step = ref(1)
 const active_code = ref('')
 const codes = ref('')
 const current_index = ref(0)
-const toltip_message = ref('copie codes')
+const toltip_message = ref('codes copied')
 const form = ref(null)
 const store = useUserStore()
 const emitter = mitt()
+const { text, copy, copied, isSupported } = useClipboard({ active_code })
 const required = (value)=>{
   return value ? true : "field are required"
 }
@@ -51,10 +53,7 @@ const getPackage = async ()=>{
 
   })
 }
-const copieCode = ()=>{
-  navigator.clipboard.writeText(active_code.value)
-  toltip_message.value = "codes copied"
-}
+
 const openDialog = ()=>{
   dialog.value = true
   getPackage()
@@ -192,7 +191,7 @@ watchEffect(()=>{
             <v-btn @click="closeModal">close</v-btn>
             <v-spacer></v-spacer>
 
-            <v-btn @click="copieCode" append-icon="mdi mdi-content-copy" color="success">copie<v-tooltip
+            <v-btn @click="copy(active_code)" append-icon="mdi mdi-content-copy" color="success">copie<v-tooltip v-if="copied"
                 activator="parent"
                 location="top"
             >{{ toltip_message }}</v-tooltip></v-btn>

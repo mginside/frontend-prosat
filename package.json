@@ -22,7 +22,7 @@
     "vue-i18n": "^9.13.1",
     "vue-router": "^4.3.0",
     "vue-toastification": "^2.0.0-rc.5",
-    "vuetify": "^3.5.17",
+    "vuetify": "^3.6.4",
     "yup": "^1.4.0"
   },
   "devDependencies": {

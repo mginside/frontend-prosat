@@ -15,7 +15,7 @@ const schema = yup.object({
   username: yup.string().required(t('username.required')).label('Username').test('Unique username','this username already exist', function(value){
    return new Promise((resolve,reject)=>{
       axios.post('user/check_username',{'user':value}).then(res=>{
-       console.log(res.data.username)
+       
         if (res.data.username === true){
           return resolve(false)
         }else {
@@ -31,9 +31,9 @@ const schema = yup.object({
     return new Promise((resolve,reject)=>{
       axios.post('user/check_email',{'email_adresse':value}).then(res=>{
         if (res.data.email === true){
-          return resolve(false)
+          return resolve(false).result
         }else{
-          return resolve(true)
+          return resolve(true).result
         }
       })
     })

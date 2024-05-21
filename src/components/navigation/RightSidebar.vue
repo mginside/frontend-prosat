@@ -1,12 +1,12 @@
 <script setup>
-import {inject} from "vue";
+import {inject,ref} from "vue";
 import ChangePassword from "@/components/dashboard/ChangePassword.vue";
 import ConnexionLog from "@/components/dashboard/ConnexionLog.vue";
 import LoginLogs from "@/components/login/LoginLogs.vue";
 import DoubleAuthentification from "@/components/login/DoubleAuthentification.vue";
 import GeneralRules from "@/components/login/GeneralRules.vue";
 
-const drawer = inject("rightdrawer")
+const drawer = ref(inject("rightdrawer"))
 </script>
 
 <template>
