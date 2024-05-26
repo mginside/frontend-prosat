@@ -63,7 +63,7 @@ const date_changer = (item)=>{
     </template>
   </v-list-item>
 
-  <v-dialog v-model="dialog"  width="auto" scrollable height="700">
+  <v-dialog v-model="dialog"  width="auto" scrollable>
 
 
       <v-data-table-server

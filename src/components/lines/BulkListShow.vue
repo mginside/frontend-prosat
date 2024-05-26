@@ -25,8 +25,5 @@ const dialog= ref(inject('dialog'))
 </template>
 
 <style  scoped>
-.v-dialog{
-align-items: flex-start;
-margin-top: 50px;
-}
+
 </style>

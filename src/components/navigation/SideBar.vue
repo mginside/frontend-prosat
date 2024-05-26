@@ -1,18 +1,25 @@
 <script setup>
 
 import {useUserStore} from "@/stores/user";
-import {inject,ref} from "vue";
+import {computed, inject, ref} from "vue";
 import GenerateCode from "@/components/dialogs/GenerateCode.vue";
+import {useTheme} from "vuetify";
+const theme = useTheme()
 const store = useUserStore()
 
 const drawer = ref(inject("drawer"))
+const colorSidebar = computed(()=>{
+  if (theme.global.name.value === 'light'){
+    return 'mysidebar'
 
+  }
+})
 
 
 </script>
 
 <template>
-  <v-navigation-drawer v-model="drawer" class="sidebar" location="start">
+  <v-navigation-drawer v-model="drawer" :class="colorSidebar" location="start">
    <v-sheet  class="text-center font-weight-thin" elevation="3">
     <div class="pa-4">
       <p>Welcome <small class="text-deep-orange-darken-3">{{ store.getUsername }}</small></p>
@@ -64,6 +71,8 @@ const drawer = ref(inject("drawer"))
 
 <style scoped>
 /* From https://css.glass */
-
-
+.mysidebar {
+  background: linear-gradient(107deg, rgb(255, 67, 5) 11.1%, rgb(245, 135, 0) 95.3%);
+  color : whitesmoke;
+}
 </style>

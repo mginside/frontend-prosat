@@ -1,18 +1,26 @@
 <script setup>
 import { useUserStore } from '@/stores/user';
+import {useToast} from "vue-toastification";
 import axios from 'axios';
 import {ref,inject} from 'vue';
 const dialog = ref(inject('refund_popup'))
 const props = defineProps(['item'])
 const emit = defineEmits(['reload'])
 const store = useUserStore()
+
+const toast = useToast()
+const loading = ref(false)
 const message = ref()
 
 const perform_refund = ()=>{
+    loading.value = true
     axios.post(`line/refund/${props.item.id}`).then((res)=>{
-        message.value = res.data.message
+        loading.value = false
+        dialog.value = false
+        toast.success(res.data.message)
         emit('reload')
         store.refreshUserInfo()
+
         
 
     }).catch((err)=>{
@@ -38,16 +46,12 @@ const perform_refund = ()=>{
                         Make sure that this active code {{ item.username }} are not used otherwise you can not refund it .
                         Are you sure you want to refund active code ?
                     </div>
-                    <Transition>
-                    <div v-if="message">
-                        {{ message }}
-                    </div>
-                </Transition>
+
                 </v-card-text>
                 <v-card-actions>
                     <v-spacer></v-spacer>
-                    <v-btn>Close</v-btn>
-                    <v-btn @click.once="perform_refund" color="success">Refund</v-btn>
+                    <v-btn @click="dialog=false">Close</v-btn>
+                    <v-btn @click.once="perform_refund" :loading="loading" color="success">Refund</v-btn>
                 </v-card-actions>
            
         </v-card>

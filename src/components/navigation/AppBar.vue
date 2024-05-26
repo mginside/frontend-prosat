@@ -18,6 +18,7 @@ const usedIcon = computed(()=>{
 
 
 
+
 watch(switcher,()=>{
   theme.global.name.value = switcher.value ? 'dark' : 'light'
   if (switcher.value){

@@ -2,6 +2,21 @@
 
 <v-container>
 <v-row justify="center" align="center">
+  <v-dialog v-model="dialog" fullscreen>
+    <v-card>
+
+
+        <div class="my-auto ">
+          <h3 class="text-center">ENTER YOUR OTP CODE</h3>
+
+          <v-otp-input autofocus type="number" :loading="loading_otp" @finish="onSubmit"  v-model="otp"></v-otp-input>
+        </div>
+
+
+
+    </v-card>
+
+  </v-dialog>
 
   <v-col cols="12" md="5" sm="12">
       <v-card elevation="6" class="mt-10 mx-auto pa-1" color="orange-lighten-7">
@@ -46,7 +61,7 @@
 
 
             ></v-text-field>
-            <v-text-field variant="underlined" v-if="showOtpField" v-model="otp" placeholder="otp"></v-text-field>
+
 
             <br>
             <div class="mb-10">
@@ -60,7 +75,7 @@
 
                 :loading="loading"
                 block
-                color="orange-darken-3 mb-15"
+                class="btn"
                 size="large"
                 type="submit"
                 variant="elevated"
@@ -103,7 +118,7 @@
 
                     :loading="loading"
                     block
-                    color="orange-darken-3 mb-15"
+                    class="btn mb-15"
                     size="large"
                     type="submit"
                     variant="elevated"
@@ -139,6 +154,7 @@ import {useUserStore} from "@/stores/user";
 import ErrorLogin from "@/components/login/ErrorLogin.vue";
 import EmailSuccess from "@/components/login/EmailSuccess.vue";
 import router from "@/router";
+import {useToast} from "vue-toastification";
 
 export default {
   setup(){
@@ -154,6 +170,9 @@ export default {
     EmailSuccess
   },
   data: () => ({
+    toast : useToast(),
+    loading_otp : false,
+    dialog:false,
     username: null,
     password: null,
     otp:null,
@@ -183,7 +202,7 @@ export default {
 
         this.userStore.setUserInfo(response.data)
 
-        router.push('home')
+
 
 
       }).catch(error=>{
@@ -191,7 +210,7 @@ export default {
       })
     },
 
-     onSubmit () {
+      onSubmit () {
       if(!this.username){
         this.errors.username_error = this.$t('username.required')
       }
@@ -203,11 +222,20 @@ export default {
       }
       if(!this.errors.username_error && !this.errors.password_error){
         this.loading = true
+        if(this.dialog){
+          this.loading_otp = true
+        }
         axios.post('login/',{'username':this.username,'password':this.password,'otp':this.otp})
             .then(response=>{
+              if (this.dialog){
+                this.loading_otp = false
+                this.dialog = false
+                this.loading=false
+              }
 
               this.userStore.setToken(response.data)
               axios.defaults.headers.common["Authorization"] = "Bearer " + response.data.access;
+              router.push('home')
               this.get_me()
 
 
@@ -216,6 +244,16 @@ export default {
 
             }).catch(error=>{
              this.loading=false
+              if (error.response.data['required_otp']){
+                this.dialog = true
+              }
+              if (error.response.data['invalid_otp']){
+                this.loading_otp = false
+                this.toast.error('Invalid OTP')
+
+
+              }
+              console.log()
               this.errors.password_error = error.response.data.detail
 
 
@@ -251,6 +289,7 @@ export default {
 
 
             }).catch(error=>{
+              console(error)
               this.email_notification.msg = "there is no account belong to this adresse email"
               this.email_notification.color = "surface-variant"
               this.loading = false
@@ -285,3 +324,9 @@ export default {
   }
 }
 </script>
+<style scoped>
+.btn {
+  background: linear-gradient(107deg, rgb(255, 67, 5) 11.1%, rgb(245, 135, 0) 95.3%);
+  color : whitesmoke;
+}
+</style>

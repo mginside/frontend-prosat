@@ -10,6 +10,7 @@ import {useUserStore} from "@/stores/user";
 const store = useUserStore()
 const dialog = ref(inject('dialog'))
 const emit = defineEmits(['reload'])
+const loading = ref(false)
 const {t} = useI18n()
 const schema = yup.object({
   username: yup.string().required(t('username.required')).label('Username').test('Unique username','this username already exist', function(value){
@@ -74,6 +75,7 @@ const[select,selectProps] = defineField('select',vuetifyConfig)
 
 
 const onSubmit = handleSubmit((values) => {
+  loading.value = true
 
   const user = {
     'username':values.username,
@@ -85,6 +87,7 @@ const onSubmit = handleSubmit((values) => {
   }
   axios.post('user/create/',user)
       .then(res=>{
+        loading.value = false
         resetForm()
         dialog.value=false
         emit('reload')
@@ -154,7 +157,7 @@ onMounted(()=>{
           <v-btn title="close" @click="dialog=false">close</v-btn>
           <v-spacer></v-spacer>
           <v-btn title="reset" color="warning" @click="resetForm">reset</v-btn>
-          <v-btn color="success" title="reset" @click="onSubmit">submit</v-btn>
+          <v-btn color="success" :loading="loading" title="reset" @click="onSubmit">submit</v-btn>
 
         </v-card-actions>
 

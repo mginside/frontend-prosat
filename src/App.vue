@@ -59,8 +59,8 @@ provide('rightdrawer',rightdrawer)
    
 
 
- <v-main>
-   <v-container fluid>
+ <v-main >
+   <v-container fluid >
      <RouterView/>
 
    </v-container>
@@ -76,9 +76,5 @@ provide('rightdrawer',rightdrawer)
 <style>
 
 
-.v-dialog{
-  align-items: flex-start !important;
-  margin-top: 50px !important;
 
-}
 </style>

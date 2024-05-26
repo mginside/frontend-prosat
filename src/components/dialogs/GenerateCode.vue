@@ -18,6 +18,7 @@ const codes = ref('')
 const current_index = ref(0)
 const toltip_message = ref('codes copied')
 const form = ref(null)
+const loading = ref(false)
 const store = useUserStore()
 const emitter = mitt()
 const { text, copy, copied, isSupported } = useClipboard({ active_code })
@@ -66,7 +67,7 @@ const TypeWritter = ()=>{
   if(current_index.value<active_code.value.length){
     codes.value += active_code.value.charAt(current_index.value)
     current_index.value++
-    setTimeout(TypeWritter,0.005)
+    setTimeout(TypeWritter,40)
 
   }else{
     current_index.value=0
@@ -80,12 +81,14 @@ const submitForm = ()=>{
     error_message.value = 'you do not have enough credit'
   }
   if (form.value.isValid){
+    loading.value = true
     const obj = {
       'quantity':quantity.value,
       'package_id':select.value,
       'note': note.value,
     }
     axios.post('line/',obj).then((res)=>{
+      loading.value = false
       store.refreshUserInfo()
       step.value++
 
@@ -163,7 +166,7 @@ watchEffect(()=>{
       <v-card-actions>
         <v-spacer></v-spacer>
         <v-btn @click="closeModal">close</v-btn>
-        <v-btn type="submit" color="success" @click.prevent="submitForm">Generate</v-btn>
+        <v-btn type="submit" :loading="loading" color="success" @click.prevent="submitForm">Generate</v-btn>
       </v-card-actions>
 
 
