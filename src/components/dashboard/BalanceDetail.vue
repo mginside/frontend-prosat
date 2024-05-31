@@ -19,10 +19,6 @@ const balanceColor = computed(()=>{
       variant="text"
       :class="balanceColor"
     >
-    
-
-     
-
       <template v-slot:text>
         <div class="text-h6">Total Balance</div>
         <div class="text-h4">{{store.getBalance}} Credits</div>
@@ -47,16 +43,9 @@ const balanceColor = computed(()=>{
                 <h1>800</h1>
             </v-sheet>
         </div>
-        
-        
-
-    
       </template>
     </v-card>
 </template>
-
-
-
 <style lang="scss" scoped>
 .mygold {
   background: radial-gradient(ellipse farthest-corner at right bottom, #FEDB37 0%, #FDB931 8%, #9f7928 30%, #8A6E2F 40%, transparent 80%),
@@ -64,12 +53,7 @@ const balanceColor = computed(()=>{
   color: black;
 }
 .blueone {
-
   background: linear-gradient(to bottom, rgba(255,255,255,0.15) 0%, rgba(0,0,0,0.15) 100%), radial-gradient(at top center, rgba(255,255,255,0.40) 0%, rgba(0,0,0,0.40) 120%) #989898;
   color: whitesmoke;
-
-
-
-
 }
 </style>

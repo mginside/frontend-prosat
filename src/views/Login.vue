@@ -82,23 +82,15 @@
             >
               {{ $t('login.btn') }}
             </v-btn>
-
-
           </v-form>
-
-
         </v-card-text>
           </v-window-item>
-
-
           <v-window-item :value="2">
             <v-card-text class="mt-10">
               <v-form @submit.prevent="SendEmail">
-
                 <v-text-field
                     v-model="email"
                     :readonly="loading"
-
                     autocomplete="off"
                     prepend-icon="mdi-email"
                     variant="underlined"
@@ -111,11 +103,8 @@
                   <v-icon icon="mdi-keyboard-backspace" class="mr-1"/>
                   {{ $t('login.back.btn') }}</a>
                 </div>
-
                 <EmailSuccess v-if="email_notification.msg" :email_notification="email_notification"/>
-
                 <v-btn
-
                     :loading="loading"
                     block
                     class="btn mb-15"
@@ -125,28 +114,14 @@
                 >
                   {{ $t('send.btn') }}
                 </v-btn>
-
-
-
-
-
               </v-form>
-
             </v-card-text>
           </v-window-item>
-
         </v-window>
-
-
       </v-card>
   </v-col>
-
 </v-row>
-
-
-
   </v-container>
-
 </template>
 <script>
 import axios from "axios";
@@ -155,15 +130,12 @@ import ErrorLogin from "@/components/login/ErrorLogin.vue";
 import EmailSuccess from "@/components/login/EmailSuccess.vue";
 import router from "@/router";
 import {useToast} from "vue-toastification";
-
 export default {
   setup(){
     const userStore = useUserStore()
     return {
       userStore
-
     }
-
   },
   components : {
     ErrorLogin,
@@ -190,26 +162,18 @@ export default {
       color:null
     }
   }),
-
   methods: {
     email_validate(email){
       return email.match(/^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/)
-
     },
      get_me(){
        axios.get('me/').then(response=>{
         this.loading = false
-
         this.userStore.setUserInfo(response.data)
-
-
-
-
       }).catch(error=>{
         console.log(error)
       })
     },
-
       onSubmit () {
       if(!this.username){
         this.errors.username_error = this.$t('username.required')
@@ -232,16 +196,10 @@ export default {
                 this.dialog = false
                 this.loading=false
               }
-
               this.userStore.setToken(response.data)
               axios.defaults.headers.common["Authorization"] = "Bearer " + response.data.access;
               router.push('home')
               this.get_me()
-
-
-
-
-
             }).catch(error=>{
              this.loading=false
               if (error.response.data['required_otp']){
@@ -250,22 +208,12 @@ export default {
               if (error.response.data['invalid_otp']){
                 this.loading_otp = false
                 this.toast.error('Invalid OTP')
-
-
               }
               console.log()
               this.errors.password_error = error.response.data.detail
-
-
-
         })
-
-
         }
-
-
     },
-
     async SendEmail(){
       if (!this.email){
         this.email_notification.msg = this.$t('email.required')
@@ -286,30 +234,21 @@ export default {
                 this.step--
 
               },2000)
-
-
             }).catch(error=>{
               console(error)
               this.email_notification.msg = "there is no account belong to this adresse email"
               this.email_notification.color = "surface-variant"
               this.loading = false
-
-
             })
       }
-
-
     },
 
-
   },
-
 
   watch:{
     username(newValue){
       if(newValue){
         this.errors.username_error = null
-
       }
     },
     password(newValue){

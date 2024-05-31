@@ -5,19 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="66a37816-ec92-4f25-a477-16c903b6c56c" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/dashboard/BalanceDetail.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/dashboard/BalanceDetail.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/dialogs/GenerateCode.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/dialogs/GenerateCode.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/lines/BulkListShow.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/lines/BulkListShow.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/lines/Enable.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/lines/Enable.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/lines/M3u.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/lines/M3u.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/lines/Refund.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/lines/Refund.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/login/LoginLogs.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/login/LoginLogs.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/navigation/AppBar.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/navigation/AppBar.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/navigation/SideBar.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/navigation/SideBar.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/AddUser.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/AddUser.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/Dashboard.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/Dashboard.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/LiveLine.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/LiveLine.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/views/Login.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/Login.vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -29,6 +24,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Vue Options API Component" />
+        <option value="JavaScript File" />
         <option value="Vue Composition API Component" />
       </list>
     </option>
@@ -83,7 +79,12 @@
       <workItem from="1716369047553" duration="2188000" />
       <workItem from="1716406291150" duration="3085000" />
       <workItem from="1716477014366" duration="7118000" />
-      <workItem from="1716715156710" duration="11508000" />
+      <workItem from="1716715156710" duration="13483000" />
+      <workItem from="1716837241437" duration="5315000" />
+      <workItem from="1716911878240" duration="2053000" />
+      <workItem from="1716914226886" duration="7497000" />
+      <workItem from="1716977788125" duration="8522000" />
+      <workItem from="1717089791467" duration="4467000" />
     </task>
     <servers />
   </component>
@@ -95,12 +96,12 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/src/views/Login.vue</url>
-          <line>159</line>
+          <line>133</line>
           <option name="timeStamp" value="1" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/src/views/Login.vue</url>
-          <line>193</line>
+          <line>164</line>
           <option name="timeStamp" value="2" />
         </line-breakpoint>
       </breakpoints>
